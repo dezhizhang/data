@@ -11,26 +11,16 @@ type Node struct {
 
 //给链表插入一个节点
 func InsertNode(head *Node, newNode *Node) {
+	//定义一个临时变量
 	temp := head
-	flag := true
 	for {
-		if temp.next == nil {
-			break
-		} else if temp.next.no > newNode.no {
-			break
-		} else if temp.next.no == newNode.no {
-			flag = false
+		if temp.next == nil { //表示找到最后一个节点
 			break
 		}
-		temp = temp.next
+		temp = temp.next //让temp不断的指向下一个结点
 	}
-	if !flag {
-		fmt.Println("当前节点以存在", newNode.no)
-		return
-	} else {
-		newNode.next = temp.next
-		temp.next = newNode
-	}
+	//加入到链表的最后
+	temp.next = newNode
 }
 
 func ShowNode(head *Node) {
@@ -61,13 +51,7 @@ func main() {
 		name:     "鲁智深",
 		nickname: "智多星",
 	}
-	node3 := &Node{
-		no:       3,
-		name:     "刘德华",
-		nickname: "华子",
-	}
 	InsertNode(head, node1)
-	InsertNode(head, node3)
 	InsertNode(head, node2)
 	ShowNode(head)
 
