@@ -31,7 +31,7 @@ func ShowNode(head *Node) {
 	}
 
 	for {
-		fmt.Println("[%d,%s,%d] ==>", temp.next.no, temp.next.name, temp.next.nickname)
+		fmt.Printf("[%d,%s,%s] ==>", temp.next.no, temp.next.name, temp.next.nickname)
 		temp = temp.next
 		if temp.next == nil {
 			break
