@@ -33,6 +33,27 @@ func InsertNode(head *Node, newNode *Node) {
 	}
 }
 
+//删除一个节点
+func DelNode(head *Node, no int) {
+	temp := head
+	flag := false
+	for {
+		if temp.next == nil {
+			break
+		} else if temp.next.no == no {
+			flag = true
+			break
+		}
+		temp = temp.next
+	}
+	if flag {
+		temp.next = temp.next.next
+	} else {
+		fmt.Println("没有找到你要删除的节点")
+	}
+
+}
+
 func ShowNode(head *Node) {
 	temp := head
 	if temp.next == nil {
@@ -69,6 +90,7 @@ func main() {
 	InsertNode(head, node1)
 	InsertNode(head, node3)
 	InsertNode(head, node2)
+	DelNode(head, 2)
 	ShowNode(head)
 
 }
