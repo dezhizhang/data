@@ -49,9 +49,8 @@ func DelNode(head *Node, no int) {
 	if flag {
 		temp.next = temp.next.next
 	} else {
-		fmt.Println("没有找到你要删除的节点")
+		fmt.Println("删除的节点不存在")
 	}
-
 }
 
 func ShowNode(head *Node) {
